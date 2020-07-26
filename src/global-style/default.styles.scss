@@ -1,0 +1,33 @@
+@import "./colors.scss";
+
+// Colours
+$text-color: $grey-dark;
+$text-color-light: $grey-light;
+$primary-color: $steel-blue-dark;
+$secondary-color: $steel-blue-light;
+$accent-color: $orange;
+$accent-secondary-color: $orange-off;
+$hover-color: $orange-light;
+$card-background: $white-frosty;
+// Tags
+$tag-one: $green;
+$tag-two: $purple;
+$tag-three: $magenta;
+
+// Fonts
+$main-font: "Open Sans", sans-serif;
+
+// Styles
+body {
+  line-height: 1;
+  font-family: $main-font;
+}
+
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
