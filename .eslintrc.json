@@ -36,7 +36,7 @@
         ],
         "react/prop-types": "off",
         "react/jsx-one-expression-per-line": [
-            "true",
+            2,
             {
                 "allow": "literal"
             }
