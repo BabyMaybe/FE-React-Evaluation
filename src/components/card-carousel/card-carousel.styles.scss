@@ -1,0 +1,12 @@
+.card-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // background: lightcoral;
+  margin-top: 2em;
+
+  & > * {
+    margin: 1em;
+    // flex: 0 0 355px;
+  }
+}
