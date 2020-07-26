@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import LoginPage from './pages/Login/login.page';
+import HeaderBar from './components/header-bar/header-bar.component';
 import {
     Route,
     Switch
