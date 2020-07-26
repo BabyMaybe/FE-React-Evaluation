@@ -1,4 +1,5 @@
-@import "./colors.scss";
+@import "./default.colors.scss";
+@import "./mixins";
 
 // Colours
 $text-color: $grey-dark;
@@ -15,19 +16,28 @@ $tag-two: $purple;
 $tag-three: $magenta;
 
 // Fonts
-$main-font: "Open Sans", sans-serif;
+$primary-font: "Open Sans", sans-serif;
 
 // Styles
 body {
   line-height: 1;
-  font-family: $main-font;
+  font-family: $primary-font;
 }
 
 h1 {
+  font: inherit;
 }
 
 h2 {
+  font: inherit;
 }
 
 h3 {
+  font: inherit;
+}
+
+button {
+  font-family: $primary-font;
+  font-weight: 700;
+  font-size: 14px;
 }
