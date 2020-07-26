@@ -1,0 +1,41 @@
+@import "../../global-style/default.styles";
+
+.login-form {
+  @include flex-center;
+  flex-direction: column;
+  background-color: $primary-color;
+  color: white;
+  padding: 2em;
+
+  & > * {
+    width: 100%;
+    margin-bottom: 1.5em;
+  }
+
+  .form-header {
+    margin-bottom: 1em;
+    font-size: 18px;
+  }
+}
+
+.ni-input {
+  padding: 1em;
+  font-size: 12px;
+  border-radius: 0;
+
+  &:focus {
+    outline: solid $accent-color 2px;
+  }
+}
+
+.ni-button {
+  background-color: $accent-secondary-color;
+  color: white;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}

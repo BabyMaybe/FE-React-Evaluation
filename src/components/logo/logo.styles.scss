@@ -1,0 +1,6 @@
+@import "../../global-style/default.styles";
+
+.logo-container {
+  @include flex-center;
+  background-color: $secondary-color;
+}
