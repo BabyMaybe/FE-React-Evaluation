@@ -2,7 +2,6 @@ import React from 'react';
 
 import './home.styles.scss';
 import HeaderBar from '../../components/header-bar/header-bar.component';
-import Card from '../../components/card/card.component';
 import CardCarousel from '../../components/card-carousel/card-carousel.component';
 
 const HomePage = () => (

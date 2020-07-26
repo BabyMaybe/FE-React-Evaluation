@@ -11,9 +11,10 @@ $accent-secondary-color: $orange-off;
 $hover-color: $orange-light;
 $card-background: $white-frosty;
 // Tags
-$tag-one: $green;
-$tag-two: $purple;
-$tag-three: $magenta;
+$tag-text-color: $white-frosty;
+$tag-one-color: $green;
+$tag-two-color: $purple;
+$tag-three-color: $magenta;
 
 // Fonts
 $primary-font: "Open Sans", sans-serif;
@@ -25,15 +26,28 @@ body {
 }
 
 h1 {
-  font: inherit;
+  padding: 1em;
+  font-size: 32px;
+  font-family: $primary-font;
+  color: $text-color;
 }
 
 h2 {
-  font: inherit;
+  font-size: 18px;
+  font-family: $primary-font;
 }
 
 h3 {
-  font: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: $primary-font;
+  color: $accent-color;
+}
+
+p {
+  font-size: 13px;
+  font-family: $primary-font;
+  color: $text-color;
 }
 
 button {

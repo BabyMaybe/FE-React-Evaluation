@@ -36,7 +36,8 @@
 
   .field-tag {
     font-size: 10px;
-    background-color: $tag-one-color;
     padding: 0.5em;
+    color: $tag-text-color;
+    background-color: $tag-one-color;
   }
 }
