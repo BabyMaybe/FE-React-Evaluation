@@ -14,10 +14,11 @@ function App() {
     console.log('test return', fakeSkills);
   return (
     <div className="App">
-      <p>This is App.js</p>
-        <Switch>
-
-        </Switch>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/interest" component={InterestPage} />
+      </Switch>
     </div>
   );
 }
