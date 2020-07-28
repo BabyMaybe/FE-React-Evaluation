@@ -7,7 +7,7 @@ const HeaderBar = () => (
   <div className="header-bar">
     <Logo width="125px" />
     <nav className="nav-bar">
-      <span span className="nav-item selected">
+      <span className="nav-item selected">
         <span>Home</span>
       </span>
 
