@@ -1,0 +1,23 @@
+@import "../../global-style/default.styles";
+
+.input-group {
+  .ni-input {
+    padding: 1em;
+    font-size: 12px;
+    border-radius: 0;
+    width: 100%;
+
+    &:focus {
+      outline: solid $accent-color 2px;
+    }
+  }
+
+  .validation-msg {
+    height: 1em;
+    font-size: 12px;
+    color: $accent-color;
+    text-align: left;
+    margin-bottom: 0.5em;
+    transition: 0.5s;
+  }
+}

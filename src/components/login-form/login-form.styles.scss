@@ -9,22 +9,12 @@
 
   & > * {
     width: 100%;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
   }
 
   .form-header {
     margin-bottom: 1em;
     font-size: 18px;
     color: white;
-  }
-}
-
-.ni-input {
-  padding: 1em;
-  font-size: 12px;
-  border-radius: 0;
-
-  &:focus {
-    outline: solid $accent-color 2px;
   }
 }
