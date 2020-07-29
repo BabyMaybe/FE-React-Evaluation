@@ -35,13 +35,20 @@
       max-height: 100%;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5em 0;
+      max-height: 100%;
+    }
+
     &:hover {
       color: $accent-color;
     }
   }
 
   .selected {
-    & span {
+    & a {
       padding: 4px 1px;
       border-bottom: solid $accent-color 4px;
     }
