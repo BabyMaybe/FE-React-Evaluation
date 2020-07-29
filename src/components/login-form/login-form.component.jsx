@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { fakeAuthenticate } from '../../utilities/utilities';
 import { userLoggedIn } from '../../redux/authentication.slice';
@@ -9,6 +10,7 @@ import NiButton from '../ni-button/ni-button.component';
 import './login-form.styles.scss';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
 
   // Setup state using useState hook
   const [username, setUsername] = useState('');
@@ -39,6 +41,7 @@ const LoginForm = () => {
     fakeAuthenticate(request).then(user => {
       console.log('logged in successfully');
       // store user in store
+      dispatch(userLoggedIn(user.name));
       // redirect to home page
     })
       .catch(error => {
