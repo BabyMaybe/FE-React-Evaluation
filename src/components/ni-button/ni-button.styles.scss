@@ -1,0 +1,21 @@
+@import "../../global-style/default.styles";
+
+.ni-button {
+  background-color: $accent-color;
+  color: white;
+  padding: 1em;
+  margin-top: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    opacity: 0.5;
+    background-color: $accent-color;
+    cursor: initial;
+  }
+}
