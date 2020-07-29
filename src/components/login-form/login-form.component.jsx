@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { fakeAuthenticate } from '../../utilities/utilities';
@@ -10,6 +11,7 @@ import NiButton from '../ni-button/ni-button.component';
 import './login-form.styles.scss';
 
 const LoginForm = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   // Setup state using useState hook
@@ -43,6 +45,7 @@ const LoginForm = () => {
       // store user in store
       dispatch(userLoggedIn(user.name));
       // redirect to home page
+      history.push('/');
     })
       .catch(error => {
         if (error.name === 'UsernameException') {
