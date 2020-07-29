@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-const initialState = [
-  { id: 0, name: 'Eric' },
-  { id: 1, name: 'Goldberry' },
-  { id: 2, name: 'Bombadil' },
-];
+import { fakeUsers as initialState } from '../dummy-data';
 
 const usersSlice = createSlice({
   name: 'users',

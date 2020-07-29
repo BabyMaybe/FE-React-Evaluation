@@ -76,3 +76,21 @@ export const fakeSkills = [
     detail: 'Coding is profitable',
   },
 ];
+
+export const fakeUsers = [
+  {
+    id: 0,
+    name: 'Eric',
+    password: 'hashedEric',
+  },
+  {
+    id: 1,
+    name: 'Goldberry',
+    password: 'hashedGoldberry',
+  },
+  {
+    id: 2,
+    name: 'Bombadil',
+    password: 'hashedBombadil',
+  },
+];
