@@ -16,6 +16,7 @@ import './App.css';
 function App() {
   const fakeInterests = useSelector(state => state.interests);
   const fakeSkills = useSelector(state => state.skills);
+
   console.log('test return', fakeInterests);
   console.log('test return', fakeSkills);
 
