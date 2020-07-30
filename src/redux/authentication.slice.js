@@ -7,10 +7,10 @@ const authenticationSlice = createSlice({
   initialState,
   reducers: {
     userLoggedIn(state, action) {
-      state.currentUser = action.payload;
+      return { ...state, currentUser: action.payload };
     },
     userLoggedOut(state) {
-      state.currentUser = null;
+      return { ...state, currentUser: null };
     },
   },
 });
