@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const skillsSlice = createSlice({
   name: 'skills',
-  initialState: {},
+  initialState: [],
   reducers: {
     loadSkills(state, action) {
       return action.payload;

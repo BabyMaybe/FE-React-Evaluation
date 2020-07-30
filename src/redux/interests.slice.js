@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const interestsSlice = createSlice({
   name: 'interests',
-  initialState: {},
+  initialState: [],
   reducers: {
     loadInterests(state, action) {
       return action.payload;
