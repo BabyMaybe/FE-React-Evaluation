@@ -13,26 +13,27 @@ const HeaderBar = () => {
   return (
     <header className="header-bar">
 
-    <Logo width="125px" />
+      <Logo width="125px" />
 
-    <nav className="nav-bar">
+      <nav className="nav-bar">
         {
           menuItems.map(item => (
             <span className={`nav-item ${currentPath === item ? 'selected' : ''}`} key={item}>
               <Link to={`/${item}`}>
                 {item}
               </Link>
-      </span>
+            </span>
           ))
         }
 
-      <div className="nav-item username">
-        <UserIcon className="user-icon" />
-        <span>Username</span>
-      </div>
+        <div className="nav-item username">
+          <UserIcon className="user-icon" />
+          <span>Username</span>
+        </div>
 
-    </nav>
+      </nav>
     </header>
-);
+  );
+};
 
 export default HeaderBar;
