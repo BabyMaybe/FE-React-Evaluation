@@ -45,7 +45,7 @@ const LoginForm = () => {
       // store user in store
       dispatch(userLoggedIn(user.name));
       // redirect to home page
-      history.push('/');
+      history.push('/home');
     })
       .catch(error => {
         if (error.name === 'UsernameException') {

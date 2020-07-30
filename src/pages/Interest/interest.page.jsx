@@ -1,11 +1,9 @@
 import React from 'react';
 
 import './interest.styles.scss';
-import HeaderBar from '../../components/header-bar/header-bar.component';
 
 const InterestPage = () => (
   <div className="interest-page">
-    <HeaderBar />
     <div className="page-container">
       <h1 className="interest-header">[INTEREST NAME]</h1>
       <div className="interest-tag">

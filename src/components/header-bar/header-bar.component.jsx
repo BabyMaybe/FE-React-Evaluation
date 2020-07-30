@@ -10,7 +10,7 @@ const HeaderBar = () => (
     <nav className="nav-bar">
 
       <span className="nav-item selected">
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
       </span>
 
       <span className="nav-item">
