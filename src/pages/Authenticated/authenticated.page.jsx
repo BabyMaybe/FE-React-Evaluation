@@ -7,8 +7,9 @@ import HomePage from '../Home/home.page';
 import CollectionPage from '../Collection/collection.page';
 
 import { loadInterests } from '../../redux/interests.slice';
-import { fakeInterests, fakeSkills } from '../../dummy-data';
 import { loadSkills } from '../../redux/skills.slice';
+
+import { fakeInterests, fakeSkills } from '../../dummy-data';
 
 const Authenticated = () => {
   const dispatch = useDispatch();
