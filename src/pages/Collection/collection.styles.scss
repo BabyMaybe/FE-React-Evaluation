@@ -1,6 +1,6 @@
 @import "../../global-style/default.styles";
 
-.interest-page {
+.collection-page {
   @include flex-center;
   flex-direction: column;
 
@@ -9,19 +9,19 @@
     margin: 0 5em;
     text-align: left;
   }
-  .interest-header {
+  .collection-header {
     text-align: left;
     padding-left: 0;
   }
 
-  .interest-name {
+  .collection-name {
     font-size: 14px;
     background-color: $tag-one-color;
     padding: 0.25em 0.5em;
     color: $tag-text-color;
   }
 
-  .interest-description {
+  .collection-description {
     margin-top: 3em;
   }
 }

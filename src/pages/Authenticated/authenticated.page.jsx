@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import HeaderBar from '../../components/header-bar/header-bar.component';
 import HomePage from '../Home/home.page';
-import InterestPage from '../Interest/interest.page';
+import CollectionPage from '../Collection/collection.page';
 
 import { loadInterests } from '../../redux/interests.slice';
 import { fakeInterests, fakeSkills } from '../../dummy-data';
@@ -27,8 +27,8 @@ const Authenticated = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/home" component={HomePage} />
-        <Route path="/interests" component={InterestPage} />
-        <Route path="/skills" component={InterestPage} />
+        <Route path="/interests" component={CollectionPage} />
+        <Route path="/skills" component={CollectionPage} />
       </Switch>
     </div>
   );
