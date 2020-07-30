@@ -1,10 +1,13 @@
 import React from 'react';
 import './header-bar.styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../logo/logo.component';
 import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
 
 const HeaderBar = () => {
+  const location = useLocation();
+
+  const currentPath = location.pathname.substr(1);
   const menuItems = ['home', 'interests', 'skills'];
 
   return (
@@ -15,7 +18,7 @@ const HeaderBar = () => {
     <nav className="nav-bar">
         {
           menuItems.map(item => (
-            <span className="nav-item" key={item}>
+            <span className={`nav-item ${currentPath === item ? 'selected' : ''}`} key={item}>
               <Link to={`/${item}`}>
                 {item}
               </Link>
