@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 
 import HeaderBar from '../../components/header-bar/header-bar.component';
 import HomePage from '../Home/home.page';
-import CollectionPage from '../Collection/collection.page';
 
 import { loadInterests } from '../../redux/interests.slice';
 import { loadSkills } from '../../redux/skills.slice';
@@ -26,10 +25,15 @@ const Authenticated = () => {
       <HeaderBar />
 
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/home" component={HomePage} />
-        <Route path="/interests" component={CollectionPage} />
-        <Route path="/skills" component={CollectionPage} />
+        <Route path="/interests">
+          <HomePage showInterests />
+        </Route>
+        <Route path="/skills">
+          <HomePage showSkills />
+        </Route>
+        <Route path="/">
+          <HomePage showSkills showInterests />
+        </Route>
       </Switch>
     </div>
   );
