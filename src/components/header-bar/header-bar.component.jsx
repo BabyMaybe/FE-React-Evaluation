@@ -1,11 +1,13 @@
 import React from 'react';
 import './header-bar.styles.scss';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Logo from '../logo/logo.component';
 import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
 
 const HeaderBar = () => {
   const location = useLocation();
+  const currentUser = useSelector(state => state.authentication.currentUser);
 
   const currentPath = location.pathname.substr(1);
   const menuItems = ['home', 'interests', 'skills'];
@@ -28,7 +30,9 @@ const HeaderBar = () => {
 
         <div className="nav-item username">
           <UserIcon className="user-icon" />
-          <span>Username</span>
+          <span>
+            {currentUser}
+          </span>
         </div>
 
       </nav>
