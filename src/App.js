@@ -17,6 +17,7 @@ function App() {
   const fakeInterests = useSelector(state => state.interests);
   const fakeSkills = useSelector(state => state.skills);
   const userAuthenticated = useSelector(state => state.authentication.currentUser);
+  const userPreviouslyAuthenticated = sessionStorage.getItem('currentUser');
 
   console.log('test return', fakeInterests);
   console.log('test return', fakeSkills);
@@ -26,7 +27,7 @@ function App() {
       <Switch>
         <Route exact path="/login" component={LoginPage} />
         <Route path="/">
-          {userAuthenticated ? <Authenticated /> : <Redirect to="/login" />}
+          {(userAuthenticated || userPreviouslyAuthenticated) ? <Authenticated /> : <Redirect to="/login" />}
         </Route>
       </Switch>
     </div>
