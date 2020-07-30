@@ -1,12 +1,13 @@
-.card-carousel {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  // background: lightcoral;
-  margin-top: 2em;
+.card-carousel-wrapper {
+  .card-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // background: lightcoral;
 
-  & > * {
-    margin: 1em;
-    // flex: 0 0 355px;
+    & > * {
+      margin: 1em;
+      // flex: 0 0 355px;
+    }
   }
 }
