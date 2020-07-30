@@ -3,7 +3,6 @@ import React from 'react';
 import './home.styles.scss';
 import { useSelector } from 'react-redux';
 import CardCarousel from '../../components/card-carousel/card-carousel.component';
-import LoginForm from '../../components/login-form/login-form.component';
 
 const HomePage = () => {
   const currentUser = useSelector(state => state.authentication.currentUser);
