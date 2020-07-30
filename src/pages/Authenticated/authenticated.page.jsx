@@ -9,7 +9,7 @@ const Authenticated = () => (
     <HeaderBar />
 
     <Switch>
-      <Route path="/" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
       <Route path="/interests" component={InterestPage} />
       <Route path="/skills" component={InterestPage} />
     </Switch>
