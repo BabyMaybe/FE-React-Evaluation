@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fakeInterests as initialState } from '../dummy-data';
-
 const interestsSlice = createSlice({
   name: 'interests',
-  initialState,
-  reducers: {},
+  initialState: {},
+  reducers: {
+    loadInterests(state, action) {
+      return action.payload;
+    },
+  },
 });
 
 export default interestsSlice.reducer;
+export const { loadInterests } = interestsSlice.actions;

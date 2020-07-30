@@ -14,13 +14,8 @@ import './App.css';
 import Authenticated from './pages/Authenticated/authenticated.page';
 
 function App() {
-  const fakeInterests = useSelector(state => state.interests);
-  const fakeSkills = useSelector(state => state.skills);
   const userAuthenticated = useSelector(state => state.authentication.currentUser);
   const userPreviouslyAuthenticated = sessionStorage.getItem('currentUser');
-
-  console.log('test return', fakeInterests);
-  console.log('test return', fakeSkills);
 
   return (
     <div className="App">

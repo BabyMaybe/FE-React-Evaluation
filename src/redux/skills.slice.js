@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fakeSkills as initialState } from '../dummy-data';
-
 const skillsSlice = createSlice({
   name: 'skills',
-  initialState,
-  reducers: {},
+  initialState: {},
+  reducers: {
+    loadSkills(state, action) {
+      return action.payload;
+    },
+  },
 });
 
 export default skillsSlice.reducer;
+export const { loadSkills } = skillsSlice.actions;
