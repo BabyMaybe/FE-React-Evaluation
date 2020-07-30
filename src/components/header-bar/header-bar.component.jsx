@@ -5,7 +5,7 @@ import Logo from '../logo/logo.component';
 import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
 
 const HeaderBar = () => (
-  <div className="header-bar">
+    <header className="header-bar">
     <Logo width="125px" />
     <nav className="nav-bar">
 
@@ -27,7 +27,7 @@ const HeaderBar = () => (
       </div>
 
     </nav>
-  </div>
+    </header>
 );
 
 export default HeaderBar;
