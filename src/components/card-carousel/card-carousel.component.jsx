@@ -11,7 +11,7 @@ const CardCarousel = ({ dataset, title }) => {
         <h1 className="card-carousel-title">
           {title}
         </h1>
-        {displayItems.map(item => <Card data={item} />)}
+        {displayItems.map(item => <Card data={item} urlStub={title} />)}
       </div>
     </div>
   );
