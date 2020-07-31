@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './header-bar.styles.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -8,23 +8,30 @@ import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
 const HeaderBar = () => {
   const location = useLocation();
   const currentUser = useSelector(state => state.authentication.currentUser);
+  const [menuClosed, setMenuClosed] = useState(true);
 
   const currentPath = location.pathname.substr(1);
   const menuItems = ['home', 'interests', 'skills'];
 
+  const menuToggle = () => {
+    if (window.matchMedia('(max-width: 850px)').matches) {
+      setMenuClosed(!menuClosed);
+    }
+  };
+
   return (
-    <header className="header-bar">
+    <header className={`header-bar ${menuClosed ? 'closed' : null}`} onClick={menuToggle}>
 
       <Logo width="125px" />
 
       <nav className="nav-bar">
         {
           menuItems.map(item => (
-            <span className={`nav-item ${currentPath === item ? 'selected' : ''}`} key={item}>
-              <Link to={`/${item}`}>
+            <Link to={`/${item}`} className={`nav-item ${currentPath.includes(item) ? 'selected' : ''}`} key={item}>
+              <span className="nav-item-text">
                 {item}
-              </Link>
-            </span>
+              </span>
+            </Link>
           ))
         }
 

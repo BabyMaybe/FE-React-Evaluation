@@ -2,10 +2,8 @@
 
 .header-bar {
   height: 75px;
-  width: 100vw;
   background-color: $primary-color;
   display: flex;
-  align-items: center;
 
   .logo-container {
     height: 100%;
@@ -22,22 +20,17 @@
   }
 
   .nav-item {
-    @include flex-center;
+    display: flex;
     color: $text-color-light;
-    padding: 0 5em;
     font-size: 12px;
     cursor: pointer;
     text-align: center;
     border-left: solid $text-color-light 1px;
+    height: 36px;
 
-    span {
-      padding: 0.5em 0;
-      max-height: 100%;
-    }
-
-    a {
-      padding: 0.5em 0;
-      max-height: 100%;
+    padding: 1em 5em;
+    .nav-item-text {
+      padding: 0 1px;
       text-transform: capitalize;
     }
 
@@ -47,9 +40,12 @@
   }
 
   .selected {
-    & a {
+    @include flex-center;
+
+    & .nav-item-text {
       padding: 4px 1px;
       border-bottom: solid $accent-color 4px;
+      border-top: solid transparent 4px;
     }
   }
 
@@ -62,5 +58,57 @@
     color: white;
     font-size: 13px;
     font-weight: 700;
+  }
+}
+
+@media (max-width: 850px) {
+  .header-bar {
+    display: block;
+    height: unset;
+    transition: overflow 1s;
+
+    &.closed {
+      height: 4em;
+      overflow: hidden;
+    }
+
+    .logo-container {
+      padding: 1.5em;
+      flex: 1;
+      cursor: pointer;
+
+      &:after {
+        content: "☰";
+        font-size: 2em;
+        position: absolute;
+        right: 1em;
+        color: $text-color-light;
+      }
+
+      &:hover,
+      &:active {
+        &:after {
+          color: $accent-color;
+        }
+      }
+    }
+
+    .nav-bar {
+      display: block;
+
+      .nav-item {
+        @include flex-center;
+        background-color: $primary-color;
+        font-size: 1em;
+        padding: 0;
+        border: none;
+        padding: 1.5em;
+      }
+
+      .selected {
+        background-color: $accent-color;
+        color: $text-color;
+      }
+    }
   }
 }
