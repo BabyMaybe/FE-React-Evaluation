@@ -3,7 +3,7 @@ import { addStylesToTypes } from '../utilities/utilities';
 import { fakeInterests } from '../dummy-data';
 
 export const fetchInterests = createAsyncThunk('interests/fetchInterests', async () => {
-  const response = await fetch('http://localhost:3000');
+  await fetch('http://localhost:3000');
   return fakeInterests;
 });
 

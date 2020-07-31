@@ -3,7 +3,7 @@ import { addStylesToTypes } from '../utilities/utilities';
 import { fakeSkills } from '../dummy-data';
 
 export const fetchSkills = createAsyncThunk('skills/fetchSkills', async () => {
-  const response = await fetch('http://localhost:3000');
+  await fetch('http://localhost:3000');
   return fakeSkills;
 });
 
