@@ -5,7 +5,16 @@ const interestsSlice = createSlice({
   initialState: [],
   reducers: {
     loadInterests(state, action) {
-      return action.payload;
+      const styles = ['type-green', 'type-purple', 'type-pink'];
+
+      const uniqueTypes = [...action.payload.reduce(
+        (acc, val) => acc.add(val.type),
+        new Set(),
+      )];
+
+      const interests = action.payload.map(item => ({ ...item, style: styles[uniqueTypes.indexOf(item.type)] }));
+
+      return interests;
     },
   },
 });
