@@ -14,4 +14,13 @@ const store = configureStore({
   },
 });
 
+export const selectDetail = (state, datatype, id) => {
+  if (datatype === 'skills') {
+    return state.skills.skills.find(skill => skill.id === id);
+  } if (datatype === 'interests') {
+    return state.interests.interests.find(i => i.id === id);
+  }
+  return {};
+};
+
 export default store;
