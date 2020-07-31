@@ -29,3 +29,14 @@ export const fakeAuthenticate = request => new Promise((resolve, reject) => {
     }
   }, 250);
 });
+
+export const addStylesToTypes = arr => {
+  const styles = ['type-green', 'type-purple', 'type-pink'];
+
+  const uniqueTypes = [...arr.reduce(
+    (acc, val) => acc.add(val.type),
+    new Set(),
+  )];
+
+  return arr.map(item => ({ ...item, style: styles[uniqueTypes.indexOf(item.type)] }));
+};

@@ -1,20 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addStylesToTypes } from '../utilities/utilities';
 
 const interestsSlice = createSlice({
   name: 'interests',
   initialState: [],
   reducers: {
     loadInterests(state, action) {
-      const styles = ['type-green', 'type-purple', 'type-pink'];
-
-      const uniqueTypes = [...action.payload.reduce(
-        (acc, val) => acc.add(val.type),
-        new Set(),
-      )];
-
-      const interests = action.payload.map(item => ({ ...item, style: styles[uniqueTypes.indexOf(item.type)] }));
-
-      return interests;
+      return addStylesToTypes(action.payload);
     },
   },
 });
