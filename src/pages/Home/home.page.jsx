@@ -6,8 +6,8 @@ import CardCarousel from '../../components/card-carousel/card-carousel.component
 
 const HomePage = ({ showSkills, showInterests }) => {
   const currentUser = useSelector(state => state.authentication.currentUser);
-  const allInterests = useSelector(state => state.interests);
-  const allSkills = useSelector(state => state.skills);
+  const allInterests = useSelector(state => state.interests.interests);
+  const allSkills = useSelector(state => state.skills.skills);
 
   return (
     <div className="home-page">
