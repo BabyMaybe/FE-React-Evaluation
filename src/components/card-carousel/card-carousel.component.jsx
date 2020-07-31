@@ -7,13 +7,11 @@ const CardCarousel = ({ dataset, title }) => {
   const displayItems = dataset || [];
   return (
     <div className="card-carousel-wrapper">
-      <h1 className="card-carousel-title">
-        {title}
-      </h1>
       <div className="card-carousel">
-        {
-        displayItems.map(item => <Card data={item} />)
-      }
+        <h1 className="card-carousel-title">
+          {title}
+        </h1>
+        {displayItems.map(item => <Card data={item} />)}
       </div>
     </div>
   );
