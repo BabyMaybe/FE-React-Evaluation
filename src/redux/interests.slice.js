@@ -32,4 +32,7 @@ const interestsSlice = createSlice({
 });
 
 export default interestsSlice.reducer;
+
+export const selectInterestById = (state, interestId) => state.interests.find(interest => interest.id === interestId);
+
 export const { loadInterests } = interestsSlice.actions;

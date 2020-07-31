@@ -32,4 +32,7 @@ const skillsSlice = createSlice({
 });
 
 export default skillsSlice.reducer;
+
+export const selectSkillById = (state, skillId) => state.skills.find(skill => skill.id === skillId);
+
 export const { loadSkills } = skillsSlice.actions;
