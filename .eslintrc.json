@@ -46,6 +46,10 @@
             {
                 "html": "ignore"
             }
+        ],
+        "radix": [
+            2,
+            "as-needed"
         ]
     }
 }
