@@ -12,7 +12,7 @@ const DetailPage = () => {
   const [, datatype] = location.split('/');
 
   const data = useSelector(state => selectDetail(state, datatype, parseInt(id)));
-  console.log(data);
+
   return (
     <div className="detail-page">
 
