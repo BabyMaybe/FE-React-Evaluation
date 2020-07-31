@@ -1,19 +1,35 @@
 import React from 'react';
 
 import './detail.styles.scss';
+import { useParams, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectDetail } from '../../redux/store';
 
-const DetailPage = ({ dataset }) => {
-  console.log('dataset');
-  console.log(dataset);
+const DetailPage = () => {
+  const { id } = useParams();
+
+  const location = useLocation().pathname;
+  const [, datatype] = location.split('/');
+
+  const data = useSelector(state => selectDetail(state, datatype, parseInt(id)));
+  console.log(data);
   return (
     <div className="detail-page">
+
       <div className="page-container">
-        <h1 className="detail-header">[detail NAME]</h1>
+        <h1 className="detail-header">
+          {data.name}
+        </h1>
         <div className="detail-tag">
-          <span className="detail-name">[detail TYPE]</span>
+          <span className="detail-name">
+            {data.type}
+          </span>
         </div>
-        <p className="detail-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
+        <p className="detail-description">
+          {data.detail}
+        </p>
       </div>
+
     </div>
   );
 };
