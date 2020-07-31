@@ -21,7 +21,7 @@ const DetailPage = () => {
           {data.name}
         </h1>
         <div className="detail-tag">
-          <span className="detail-name">
+          <span className={`detail-name ${data.style}`}>
             {data.type}
           </span>
         </div>

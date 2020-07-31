@@ -4,7 +4,7 @@ import { fakeInterests } from '../dummy-data';
 
 export const fetchInterests = createAsyncThunk('interests/fetchInterests', async () => {
   await fetch('http://localhost:3000');
-  return fakeInterests;
+  return addStylesToTypes(fakeInterests);
 });
 
 const interestsSlice = createSlice({
@@ -21,11 +21,11 @@ const interestsSlice = createSlice({
     },
     [fetchInterests.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.interests = fakeInterests;
+      state.interests = action.payload;
     },
     [fetchInterests.rejected]: (state, action) => {
       state.status = 'failed';
-      state.interests = fakeInterests;
+      state.interests = action.payload;
       state.error = action.error.message;
     },
   },

@@ -4,7 +4,7 @@ import { fakeSkills } from '../dummy-data';
 
 export const fetchSkills = createAsyncThunk('skills/fetchSkills', async () => {
   await fetch('http://localhost:3000');
-  return fakeSkills;
+  return addStylesToTypes(fakeSkills);
 });
 
 const skillsSlice = createSlice({
@@ -21,11 +21,11 @@ const skillsSlice = createSlice({
     },
     [fetchSkills.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.skills = fakeSkills;
+      state.skills = action.payload;
     },
     [fetchSkills.rejected]: (state, action) => {
       state.status = 'failed';
-      state.skills = fakeSkills;
+      state.skills = action.payload;
       state.error = action.error.message;
     },
   },
