@@ -19,6 +19,15 @@
   }
 
   .card-field {
+    .type-green {
+      background-color: $tag-one-color;
+    }
+    .type-purple {
+      background-color: $tag-two-color;
+    }
+    .type-pink {
+      background-color: $tag-three-color;
+    }
   }
 
   .field-name {

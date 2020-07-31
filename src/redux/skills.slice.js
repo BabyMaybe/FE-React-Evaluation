@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addStylesToTypes } from '../utilities/utilities';
 
 const skillsSlice = createSlice({
   name: 'skills',
   initialState: [],
   reducers: {
     loadSkills(state, action) {
-      return action.payload;
+      return addStylesToTypes(action.payload);
     },
   },
 });

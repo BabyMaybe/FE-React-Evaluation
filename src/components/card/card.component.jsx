@@ -18,7 +18,7 @@ const Card = ({ data }) => (
 
     <div className="card-field">
       <span className="field-name">TYPE:</span>
-      <span className="field-info field-tag">
+      <span className={`field-info field-tag ${data.style}`}>
         {data.type}
       </span>
     </div>
