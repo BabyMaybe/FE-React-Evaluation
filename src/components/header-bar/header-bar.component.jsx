@@ -10,13 +10,14 @@ import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
 import './header-bar.styles.scss';
 
 const HeaderBar = () => {
-  const location = useLocation();
-  const currentUser = useSelector(state => state.authentication.currentUser);
+  const menuItems = ['home', 'interests', 'skills'];
+
+  const currentPath = useLocation().pathname.substr(1);
+
   const [menuClosed, setMenuClosed] = useState(true);
   const [logoutOpened, setlogoutOpened] = useState(false);
 
-  const currentPath = location.pathname.substr(1);
-  const menuItems = ['home', 'interests', 'skills'];
+  const currentUser = useSelector(state => state.authentication.currentUser);
 
   const menuToggle = () => {
     if (window.matchMedia('(max-width: 850px)').matches) {
