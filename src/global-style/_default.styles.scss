@@ -1,6 +1,9 @@
 @import "./default.colors.scss";
 @import "./mixins";
 
+// Default set of styles and global resets. Changing configurations here will propogate style changes throughout the site
+// this file can also be used as a template for alternate theming ie Dark Mode, etc
+
 // Colours
 $text-color: $grey-dark;
 $text-color-light: $grey-light;

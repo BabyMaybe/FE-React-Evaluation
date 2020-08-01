@@ -28,14 +28,15 @@ const LoginForm = () => {
   // Simulate a fake login attempt
   const onLoginAttempt = e => {
     e.preventDefault();
+
     // Clear any previous error messages
     setUsernameValidationMsg('');
     setPasswordValidationMsg('');
 
-    // simulate hashing password so we don't send plaintext through request
+    // Simulate hashing password using this SUPER SECURE hashing function I made so we don't send plaintext passwords out of our app
     const hashedPassword = `hashed${password}`;
 
-    // build a fake simplified request object
+    // Build a fake simplified request object
     const request = {
       username,
       password: hashedPassword,
@@ -48,6 +49,7 @@ const LoginForm = () => {
       history.push('/home');
     })
       .catch(error => {
+        // Set custom error messages based on error type sent back from "server"
         if (error.name === 'UsernameException') {
           setUsernameValidationMsg(error.message);
         }
@@ -57,6 +59,7 @@ const LoginForm = () => {
       });
   };
 
+  // Make sure both username and password are not empty before submitting request
   const canSubmit = username && password;
 
   return (

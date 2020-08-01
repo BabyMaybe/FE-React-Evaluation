@@ -4,6 +4,15 @@ import { useSelector } from 'react-redux';
 
 import CardCarousel from '../../components/card-carousel/card-carousel.component';
 
+import './home.styles.scss';
+
+// This is the main page that renders any group levels of data.
+// It retrieves any data currently in the store and passes that data along to the
+// CardCarousel components.
+
+// I am not in love with my solution of hard coding the two Carousels here, but
+// building an arbitrarily configurable Home Page seemed like a rabbit hole when I was implementing.
+// This also seemed more lightweight than building a separate page for each route so it seemed a good compromise
 const HomePage = ({ showSkills, showInterests }) => {
   const currentUser = useSelector(state => state.authentication.currentUser);
 

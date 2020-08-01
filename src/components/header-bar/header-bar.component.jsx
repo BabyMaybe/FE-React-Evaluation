@@ -10,6 +10,7 @@ import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
 import './header-bar.styles.scss';
 
 const HeaderBar = () => {
+  // Static array to build menu from
   const menuItems = ['home', 'interests', 'skills'];
 
   const currentPath = useLocation().pathname.substr(1);
@@ -19,12 +20,16 @@ const HeaderBar = () => {
 
   const currentUser = useSelector(state => state.authentication.currentUser);
 
+  // Opens and closes Hamburger Menu in Mobile view
   const menuToggle = () => {
     if (window.matchMedia('(max-width: 850px)').matches) {
       setMenuClosed(!menuClosed);
     }
   };
 
+  // This wasn't in spec but I added a logout feature under the username
+  // this function toggles a menu option for it in and out and only toggles
+  // in desktop view
   const logoutToggle = () => {
     if (!window.matchMedia('(max-width: 850px)').matches) {
       setlogoutOpened(!logoutOpened);
@@ -38,6 +43,9 @@ const HeaderBar = () => {
 
       <nav className="nav-bar">
         {
+          // I set this up like this for simplicity, but a flaw of this approach is that it requires
+          // the menu text and the path to be the same. A better way would probably be to have a configuration
+          // object that includes both a text property and a path property
           menuItems.map(item => (
             <Link to={`/${item}`} className={`nav-item ${currentPath.includes(item) ? 'selected' : ''}`} key={item}>
               <span className="nav-item-text">

@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Authentiaction slice really only keeps track of the current users name
+// but it does have actions for Logging in and Logging out.
+// It will also save the user to sessionStorage to allow authentication
+// to persist between page reloads
+
 const initialState = { currentUser: null };
 
 const authenticationSlice = createSlice({
