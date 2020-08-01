@@ -38,5 +38,8 @@ export const addStylesToTypes = arr => {
     new Set(),
   )];
 
-  return arr.map(item => ({ ...item, style: styles[uniqueTypes.indexOf(item.type)] }));
+  return arr.map(item => ({
+    ...item,
+    style: styles[uniqueTypes.indexOf(item.type) % styles.length],
+  }));
 };
