@@ -1,0 +1,33 @@
+@import "../../global-style/default.styles";
+
+.logout {
+  @include flex-center;
+
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding-top: 0;
+  transition: z-index 0s linear 0s, padding 0.5s ease 0s;
+
+  &.open {
+    z-index: 1;
+    padding-top: 75px;
+    transition: z-index 0s linear 0.5s, padding 0.5s ease 0s;
+  }
+
+  .logout-text {
+    position: relative;
+    flex: 1;
+    padding: 1em 0;
+    background-color: $secondary-color;
+    font-weight: 400;
+
+    &:hover {
+      background-color: $accent-color;
+      color: $text-color-light;
+    }
+  }
+}

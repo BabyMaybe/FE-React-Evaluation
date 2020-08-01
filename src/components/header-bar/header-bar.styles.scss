@@ -27,8 +27,8 @@
     text-align: center;
     border-left: solid $text-color-light 1px;
     height: 36px;
-
     padding: 1em 5em;
+
     .nav-item-text {
       padding: 0 1px;
       text-transform: capitalize;
@@ -58,6 +58,13 @@
     color: white;
     font-size: 13px;
     font-weight: 700;
+    position: relative;
+
+    &.open {
+      &:hover {
+        color: white;
+      }
+    }
   }
 }
 

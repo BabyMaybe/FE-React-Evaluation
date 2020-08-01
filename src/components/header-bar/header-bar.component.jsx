@@ -4,11 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Logo from '../logo/logo.component';
 import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
+import Logout from '../logout/logout.component';
 
 const HeaderBar = () => {
   const location = useLocation();
   const currentUser = useSelector(state => state.authentication.currentUser);
   const [menuClosed, setMenuClosed] = useState(true);
+  const [logoutOpened, setlogoutOpened] = useState(false);
 
   const currentPath = location.pathname.substr(1);
   const menuItems = ['home', 'interests', 'skills'];
@@ -16,6 +18,12 @@ const HeaderBar = () => {
   const menuToggle = () => {
     if (window.matchMedia('(max-width: 850px)').matches) {
       setMenuClosed(!menuClosed);
+    }
+  };
+
+  const logoutToggle = () => {
+    if (!window.matchMedia('(max-width: 850px)').matches) {
+      setlogoutOpened(!logoutOpened);
     }
   };
 
@@ -35,8 +43,9 @@ const HeaderBar = () => {
           ))
         }
 
-        <div className="nav-item username">
+        <div className={`nav-item username ${logoutOpened ? 'open' : ''}`} onClick={logoutToggle}>
           <UserIcon className="user-icon" />
+          <Logout open={logoutOpened} />
           <span>
             {currentUser}
           </span>

@@ -10,6 +10,7 @@ const authenticationSlice = createSlice({
       return { ...state, currentUser: action.payload };
     },
     userLoggedOut(state) {
+      sessionStorage.removeItem('currentUser');
       return { ...state, currentUser: null };
     },
   },
