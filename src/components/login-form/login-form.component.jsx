@@ -42,10 +42,8 @@ const LoginForm = () => {
     };
 
     fakeAuthenticate(request).then(user => {
-      console.log('logged in successfully');
       // store user in store
       dispatch(userLoggedIn(user.name));
-      sessionStorage.setItem('currentUser', user.name);
       // redirect to home page
       history.push('/home');
     })

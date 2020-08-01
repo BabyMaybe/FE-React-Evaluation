@@ -7,6 +7,7 @@ const authenticationSlice = createSlice({
   initialState,
   reducers: {
     userLoggedIn(state, action) {
+      sessionStorage.setItem('currentUser', action.payload);
       return { ...state, currentUser: action.payload };
     },
     userLoggedOut(state) {
