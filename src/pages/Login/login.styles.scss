@@ -18,3 +18,19 @@
     flex-basis: 50%;
   }
 }
+
+@media (max-width: 850px) {
+  .login-container {
+    flex-direction: column;
+    height: 100vh;
+    border: none;
+
+    .logo-container {
+      flex: 1;
+    }
+
+    .login-form {
+      flex: 2;
+    }
+  }
+}
