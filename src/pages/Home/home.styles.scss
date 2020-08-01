@@ -15,3 +15,11 @@
     padding-left: 0;
   }
 }
+
+@media (max-width: 850px) {
+  .home-page {
+    .page-container {
+      margin: 0 1em;
+    }
+  }
+}

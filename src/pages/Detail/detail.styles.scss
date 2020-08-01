@@ -27,3 +27,11 @@
     margin-top: 3em;
   }
 }
+
+@media (max-width: 850px) {
+  .detail-page {
+    .page-container {
+      margin: 0 1em;
+    }
+  }
+}

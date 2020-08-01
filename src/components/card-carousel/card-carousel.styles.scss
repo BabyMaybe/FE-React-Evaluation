@@ -20,3 +20,18 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .card-carousel-wrapper {
+    .card-carousel {
+      .card-carousel-title {
+        margin-bottom: 0.5em;
+        text-align: center;
+      }
+
+      & > * {
+        margin: 0.5em;
+      }
+    }
+  }
+}
