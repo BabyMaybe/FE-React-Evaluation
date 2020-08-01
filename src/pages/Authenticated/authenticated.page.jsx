@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import HeaderBar from '../../components/header-bar/header-bar.component';
 import HomePage from '../Home/home.page';
-
 import DetailPage from '../Detail/detail.page';
+
+import HeaderBar from '../../components/header-bar/header-bar.component';
+
 import { fetchSkills } from '../../redux/skills.slice';
 import { fetchInterests } from '../../redux/interests.slice';
 

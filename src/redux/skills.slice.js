@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
 import { addStylesToTypes } from '../utilities/utilities';
 import { fakeSkills } from '../dummy-data';
 

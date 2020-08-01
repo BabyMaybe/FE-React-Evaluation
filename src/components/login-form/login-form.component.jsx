@@ -17,6 +17,7 @@ const LoginForm = () => {
   // Setup state using useState hook
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
   const [usernameValidationMsg, setUsernameValidationMsg] = useState('');
   const [passwordValidationMsg, setPasswordValidationMsg] = useState('');
 
@@ -63,8 +64,11 @@ const LoginForm = () => {
   return (
     <form className="login-form">
       <h2 className="form-header">Login to Our Magic Portal</h2>
+
       <NiInput type="text" placeholder="Username" name="username" id="username" validationMsg={usernameValidationMsg} handleChange={onUsernameChanged} autoComplete="username" />
+
       <NiInput type="password" placeholder="Password" name="password" id="password" validationMsg={passwordValidationMsg} handleChange={onPasswordChanged} autoComplete="password" />
+
       <NiButton onClick={onLoginAttempt} disabled={!canSubmit}>LOGIN</NiButton>
     </form>
   );

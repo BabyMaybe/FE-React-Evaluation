@@ -8,11 +8,12 @@ import {
   Redirect,
 } from 'react-router-dom';
 
+import { userLoggedIn } from './redux/authentication.slice';
+
 import LoginPage from './pages/Login/login.page';
+import Authenticated from './pages/Authenticated/authenticated.page';
 
 import './App.css';
-import Authenticated from './pages/Authenticated/authenticated.page';
-import { userLoggedIn } from './redux/authentication.slice';
 
 function App() {
   const userAuthenticated = useSelector(state => state.authentication.currentUser);

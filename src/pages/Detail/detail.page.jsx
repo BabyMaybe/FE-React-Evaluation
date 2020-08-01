@@ -1,9 +1,10 @@
 import React from 'react';
 
-import './detail.styles.scss';
 import { useParams, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectDetail } from '../../redux/store';
+
+import './detail.styles.scss';
 
 const DetailPage = () => {
   const { id } = useParams();

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import './header-bar.styles.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Logo from '../logo/logo.component';
-import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
+
 import Logout from '../logout/logout.component';
+import Logo from '../logo/logo.component';
+
+import { ReactComponent as UserIcon } from '../../assets/user-solid.svg';
+
+import './header-bar.styles.scss';
 
 const HeaderBar = () => {
   const location = useLocation();
