@@ -34,11 +34,11 @@ const skillsSlice = createSlice({
     },
     [fetchSkills.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.skills = action.payload;
+      state.skills = addStylesToTypes(fakeSkills);
     },
     [fetchSkills.rejected]: (state, action) => {
       state.status = 'failed';
-      state.skills = action.payload;
+      state.skills = addStylesToTypes(fakeSkills);
       state.error = action.error.message;
     },
   },

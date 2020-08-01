@@ -42,13 +42,17 @@ const Authenticated = () => {
   // Placeholder to build content for and allow for hot swapping a Loading component
   let content;
 
+  // Right now data is guranteed to be returned but this should have actual error
+  // handling built in in a more robust app
+  const skillsLoaded = skillsStatus === 'succeeded' || skillsStatus === 'failed';
+  const interestsLoaded = interestsStatus === 'succeeded' || interestsStatus === 'failed';
+
   if (skillsStatus === 'loading' || interestsStatus === 'loading') {
     // This loading screen should be razzle dazzled a little in a real app ;)
     content = <h1>LOADING...</h1>;
+
     // Only display actual content if all data has been loaded
-    // Right now data is guranteed to be returned but this should have error
-    // handling built in in a more robust app
-  } else if (skillsStatus === 'succeeded' && interestsStatus === 'succeeded') {
+  } else if (skillsLoaded && interestsLoaded) {
     content = (
       <Switch>
         <Route exact path="/interests" render={() => <HomePage showInterests />} />

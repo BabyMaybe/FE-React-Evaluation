@@ -34,11 +34,11 @@ const interestsSlice = createSlice({
     },
     [fetchInterests.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.interests = action.payload;
+      state.interests = addStylesToTypes(fakeInterests);
     },
     [fetchInterests.rejected]: (state, action) => {
       state.status = 'failed';
-      state.interests = action.payload;
+      state.interests = addStylesToTypes(fakeInterests);
       state.error = action.error.message;
     },
   },
