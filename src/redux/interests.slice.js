@@ -3,10 +3,17 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { addStylesToTypes } from '../utilities/utilities';
 import { fakeInterests } from '../dummy-data';
 
+let endpoint;
+if (process.env.NODE_ENV === 'development') {
+  endpoint = 'http://localhost:3000';
+} else {
+  endpoint = 'https://noinc-fe-eval.herokuapp.com/home';
+}
+
 // Interests are fetched through a simulated Asynchronous Thunk.
 // Regarldess of the response the dummy data is loaded into the store.
 export const fetchInterests = createAsyncThunk('interests/fetchInterests', async () => {
-  await fetch('http://localhost:3000');
+  await fetch(endpoint);
   // Interests are also annotated with their types to make styling easier on presentation
   return addStylesToTypes(fakeInterests);
 });
