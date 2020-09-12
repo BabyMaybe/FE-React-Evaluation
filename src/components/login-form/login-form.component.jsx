@@ -10,6 +10,11 @@ import NiButton from '../ni-button/ni-button.component';
 
 import './login-form.styles.scss';
 
+let endpoint;
+if (process.env.NODE_ENV === 'development') {
+  endpoint = `http://${process.env.REACT_APP_BACKEND_URL_DEV}`;
+}
+
 const LoginForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -33,14 +38,22 @@ const LoginForm = () => {
     setUsernameValidationMsg('');
     setPasswordValidationMsg('');
 
-    // Simulate hashing password using this SUPER SECURE hashing function I made so we don't send plaintext passwords out of our app
-    const hashedPassword = `hashed${password}`;
-
     // Build a fake simplified request object
     const request = {
       username,
-      password: hashedPassword,
+      password,
     };
+
+    console.log(`${endpoint}/users/login`);
+    console.log(request);
+    fetch(`${endpoint}/users/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(request),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
 
     fakeAuthenticate(request).then(user => {
       // store user in store
