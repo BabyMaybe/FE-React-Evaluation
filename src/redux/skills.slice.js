@@ -5,7 +5,7 @@ import { addStylesToTypes } from '../utilities/utilities';
 
 const skillsEndpoint = `${process.env.REACT_APP_BACKEND_URL}/skills`;
 
-// Skills are fetched through a simulated Asynchronous Thunk.
+// Skills are fetched through a simulated Asynchronous Thunk
 // Regarldess of the response the dummy data is loaded into the store.
 export const fetchSkills = createAsyncThunk('skills/fetchSkills',
   async (data, { getState }) => {
