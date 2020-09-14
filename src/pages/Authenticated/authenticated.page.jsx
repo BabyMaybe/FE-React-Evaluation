@@ -57,6 +57,7 @@ const Authenticated = () => {
       <Switch>
         <Route exact path="/interests" render={() => <HomePage showInterests />} />
         <Route exact path="/skills" render={() => <HomePage showSkills />} />
+        <Route path="/skills/add" component={AddSkillForm} />
         <Route path="/skills/:id" component={DetailPage} />
         <Route path="/interests/:id" component={DetailPage} />
         <Route path="/" render={() => <HomePage showSkills showInterests />} />

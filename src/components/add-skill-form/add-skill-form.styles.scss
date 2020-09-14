@@ -1,0 +1,33 @@
+@import "../../global-style/default.styles";
+
+.add-skill-form {
+  max-width: 40vw;
+
+  margin: 0 auto;
+
+  .form-title {
+    padding: 0.5em;
+    margin-top: 1em;
+    text-align: left;
+    border-bottom: solid $accent-color 2px;
+  }
+
+  form {
+    label {
+      margin-top: 3em;
+      display: block;
+      text-align: left;
+      font-size: 0.75em;
+    }
+
+    .input-group.ni-input {
+      margin-top: 0em;
+      padding: 0.5em;
+      border-bottom: solid $primary-color 1px;
+    }
+
+    .validation-msg {
+      display: none;
+    }
+  }
+}

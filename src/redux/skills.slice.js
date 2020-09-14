@@ -1,22 +1,45 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { addStylesToTypes } from '../utilities/utilities';
-import { fakeSkills } from '../dummy-data';
 
-let endpoint;
+let skillsEndpoint;
 if (process.env.NODE_ENV === 'development') {
-  endpoint = 'http://localhost:3000';
+  skillsEndpoint = `http://${process.env.REACT_APP_BACKEND_URL_DEV}/skills`;
 } else {
-  endpoint = 'https://noinc-fe-eval.herokuapp.com/home';
+  skillsEndpoint = 'https://noinc-fe-eval.herokuapp.com/home';
 }
 
 // Skills are fetched through a simulated Asynchronous Thunk.
 // Regarldess of the response the dummy data is loaded into the store.
-export const fetchSkills = createAsyncThunk('skills/fetchSkills', async () => {
-  await fetch(endpoint);
-  // Skills are also annotated with their types to make styling easier on presentation
-  return addStylesToTypes(fakeSkills);
-});
+export const fetchSkills = createAsyncThunk('skills/fetchSkills',
+  async (data, { getState }) => {
+    const auth = getState().authentication;
+
+    const response = await fetch(skillsEndpoint, {
+      method: 'GET',
+      headers: { Authorization: auth.currentUser.token },
+    });
+    // Skills are also annotated with their types to make styling easier on presentation
+    const skills = await response.json();
+    return addStylesToTypes(skills);
+  });
+
+export const addSkill = createAsyncThunk('skills/add',
+  async (data, { getState }) => {
+    const auth = getState().authentication;
+    const response = await fetch(`${skillsEndpoint}`, {
+      method: 'POST',
+      headers: { Authorization: auth.currentUser.token, 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (response.status !== 200) {
+      const error = await response.json();
+      throw new Error(error.message);
+    }
+    return response.json();
+  });
 
 const skillsSlice = createSlice({
   name: 'skills',
@@ -34,11 +57,22 @@ const skillsSlice = createSlice({
     },
     [fetchSkills.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.skills = addStylesToTypes(fakeSkills);
+      state.skills = action.payload;
     },
     [fetchSkills.rejected]: (state, action) => {
       state.status = 'failed';
-      state.skills = addStylesToTypes(fakeSkills);
+      state.error = action.error.message;
+    },
+    [addSkill.pending]: (state, action) => {
+      state.status = 'loading';
+    },
+    [addSkill.fulfilled]: (state, action) => {
+      state.status = 'succeeded';
+      console.log(action.payload);
+      state.skills = addStylesToTypes([...state.skills, action.payload]);
+    },
+    [addSkill.rejected]: (state, action) => {
+      state.status = 'failed';
       state.error = action.error.message;
     },
   },
