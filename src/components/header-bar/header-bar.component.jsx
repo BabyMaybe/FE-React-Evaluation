@@ -18,7 +18,7 @@ const HeaderBar = () => {
   const [menuClosed, setMenuClosed] = useState(true);
   const [logoutOpened, setlogoutOpened] = useState(false);
 
-  const currentUser = useSelector(state => state.authentication.currentUser);
+  const currentUser = useSelector(state => state.authentication.currentUser.username);
 
   // Opens and closes Hamburger Menu in Mobile view
   const menuToggle = () => {
