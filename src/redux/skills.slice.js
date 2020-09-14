@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { addStylesToTypes } from '../utilities/utilities';
 
-const skillsEndpoint = `http://${process.env.REACT_APP_BACKEND_URL}/skills`;
+const skillsEndpoint = `${process.env.REACT_APP_BACKEND_URL}/skills`;
 
 // Skills are fetched through a simulated Asynchronous Thunk.
 // Regarldess of the response the dummy data is loaded into the store.

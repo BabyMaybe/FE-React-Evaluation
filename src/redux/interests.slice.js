@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { addStylesToTypes } from '../utilities/utilities';
 
-const interestsEndpoint = `http://${process.env.REACT_APP_BACKEND_URL}/interests`;
+const interestsEndpoint = `${process.env.REACT_APP_BACKEND_URL}/interests`;
 
 // Interests are fetched through a simulated Asynchronous Thunk.
 // Regarldess of the response the dummy data is loaded into the store.

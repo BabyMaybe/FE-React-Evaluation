@@ -6,8 +6,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // It will also save the user to sessionStorage to allow authentication
 // to persist between page reloads
 
-const loginEndpoint = `http://${process.env.REACT_APP_BACKEND_URL}/users/login`;
-const logoutEndpoint = `http://${process.env.REACT_APP_BACKEND_URL}/users/logout`;
+const loginEndpoint = `${process.env.REACT_APP_BACKEND_URL}/users/login`;
+const logoutEndpoint = `${process.env.REACT_APP_BACKEND_URL}/users/logout`;
 
 const initialState = {
   currentUser: null,
