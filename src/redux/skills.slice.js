@@ -3,12 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { addStylesToTypes } from '../utilities/utilities';
 
-let skillsEndpoint;
-if (process.env.NODE_ENV === 'development') {
-  skillsEndpoint = `http://${process.env.REACT_APP_BACKEND_URL_DEV}/skills`;
-} else {
-  skillsEndpoint = 'https://noinc-fe-eval.herokuapp.com/home';
-}
+const skillsEndpoint = `http://${process.env.REACT_APP_BACKEND_URL}/skills`;
 
 // Skills are fetched through a simulated Asynchronous Thunk.
 // Regarldess of the response the dummy data is loaded into the store.

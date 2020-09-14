@@ -3,12 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { addStylesToTypes } from '../utilities/utilities';
 
-let interestsEndpoint;
-if (process.env.NODE_ENV === 'development') {
-  interestsEndpoint = `http://${process.env.REACT_APP_BACKEND_URL_DEV}/interests`;
-} else {
-  interestsEndpoint = 'https://noinc-fe-eval.herokuapp.com/home';
-}
+const interestsEndpoint = `http://${process.env.REACT_APP_BACKEND_URL}/interests`;
 
 // Interests are fetched through a simulated Asynchronous Thunk.
 // Regarldess of the response the dummy data is loaded into the store.
