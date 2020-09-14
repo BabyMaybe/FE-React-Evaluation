@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useParams, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectDetail } from '../../redux/store';
 
@@ -9,13 +9,11 @@ import './detail.styles.scss';
 // This is a Page Component that can be used to render any individual data component
 // The weakness of having a single component like this is obviously customizability
 // But with the similiarities of the datatypes being used it seemed like an acceptable tradeoff
-const DetailPage = () => {
-  const { id } = useParams();
-
+const DetailPage = props => {
   const location = useLocation().pathname;
   const [, datatype] = location.split('/');
-
-  const data = useSelector(state => selectDetail(state, datatype, parseInt(id)));
+  const { id } = props.location.state;
+  const data = useSelector(state => selectDetail(state, datatype, id));
 
   return (
     <div className="detail-page">
