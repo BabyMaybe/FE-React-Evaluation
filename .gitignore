@@ -25,3 +25,5 @@ yarn-error.log*
 
 src/assets/favicon_io/
 *.zip
+
+.env

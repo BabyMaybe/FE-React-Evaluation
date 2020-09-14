@@ -1,16 +1,22 @@
 import React from 'react';
 
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { userLoggedOut } from '../../redux/authentication.slice';
+
+import { logoutUser } from '../../redux/authentication.slice';
 
 import './logout.styles.scss';
 
 const Logout = ({ open }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const logout = e => {
+  const logout = async e => {
     e.stopPropagation();
-    dispatch(userLoggedOut());
+    const response = await dispatch(logoutUser());
+    if (!response.error) {
+      history.push('/login');
+    }
   };
 
   return (

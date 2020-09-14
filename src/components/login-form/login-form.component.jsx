@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { fakeAuthenticate } from '../../utilities/utilities';
-import { userLoggedIn } from '../../redux/authentication.slice';
+import { loginUser } from '../../redux/authentication.slice';
 
 import NiInput from '../ni-input/ni-input.component';
 import NiButton from '../ni-button/ni-button.component';
@@ -25,38 +24,28 @@ const LoginForm = () => {
   const onUsernameChanged = e => setUsername(e.target.value);
   const onPasswordChanged = e => setPassword(e.target.value);
 
-  // Simulate a fake login attempt
-  const onLoginAttempt = e => {
+  // Login using new backend
+  const onLoginAttempt = async e => {
     e.preventDefault();
 
     // Clear any previous error messages
     setUsernameValidationMsg('');
     setPasswordValidationMsg('');
 
-    // Simulate hashing password using this SUPER SECURE hashing function I made so we don't send plaintext passwords out of our app
-    const hashedPassword = `hashed${password}`;
-
     // Build a fake simplified request object
     const request = {
       username,
-      password: hashedPassword,
+      password,
     };
 
-    fakeAuthenticate(request).then(user => {
-      // store user in store
-      dispatch(userLoggedIn(user.name));
-      // redirect to home page
+    const response = await dispatch(loginUser(request));
+
+    if (response.error) {
+      setUsernameValidationMsg(response.error.message);
+      setPasswordValidationMsg(response.error.message);
+    } else {
       history.push('/home');
-    })
-      .catch(error => {
-        // Set custom error messages based on error type sent back from "server"
-        if (error.name === 'UsernameException') {
-          setUsernameValidationMsg(error.message);
-        }
-        if (error.name === 'PasswordException') {
-          setPasswordValidationMsg(error.message);
-        }
-      });
+    }
   };
 
   // Make sure both username and password are not empty before submitting request

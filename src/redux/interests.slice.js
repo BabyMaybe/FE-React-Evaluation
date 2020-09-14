@@ -1,22 +1,46 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { addStylesToTypes } from '../utilities/utilities';
-import { fakeInterests } from '../dummy-data';
 
-let endpoint;
+let interestsEndpoint;
 if (process.env.NODE_ENV === 'development') {
-  endpoint = 'http://localhost:3000';
+  interestsEndpoint = `http://${process.env.REACT_APP_BACKEND_URL_DEV}/interests`;
 } else {
-  endpoint = 'https://noinc-fe-eval.herokuapp.com/home';
+  interestsEndpoint = 'https://noinc-fe-eval.herokuapp.com/home';
 }
 
 // Interests are fetched through a simulated Asynchronous Thunk.
 // Regarldess of the response the dummy data is loaded into the store.
-export const fetchInterests = createAsyncThunk('interests/fetchInterests', async () => {
-  await fetch(endpoint);
-  // Interests are also annotated with their types to make styling easier on presentation
-  return addStylesToTypes(fakeInterests);
-});
+export const fetchInterests = createAsyncThunk('interests/fetchInterests',
+  async (data, { getState }) => {
+    const auth = getState().authentication;
+    const response = await fetch(interestsEndpoint, {
+      method: 'GET',
+      headers: { Authorization: auth.currentUser.token },
+    });
+    // Interests are also annotated with their types to make styling easier on presentation
+
+    const interests = await response.json();
+    return addStylesToTypes(interests);
+  });
+
+export const addInterest = createAsyncThunk('skills/add',
+  async (data, { getState }) => {
+    const auth = getState().authentication;
+
+    const response = await fetch(`${interestsEndpoint}`, {
+      method: 'POST',
+      headers: { Authorization: auth.currentUser.token, 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (response.status !== 201) {
+      const error = await response.json();
+      throw new Error(error.message);
+    }
+    return response.json();
+  });
 
 const interestsSlice = createSlice({
   name: 'interests',
@@ -34,11 +58,22 @@ const interestsSlice = createSlice({
     },
     [fetchInterests.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.interests = addStylesToTypes(fakeInterests);
+      state.interests = action.payload;
     },
     [fetchInterests.rejected]: (state, action) => {
       state.status = 'failed';
-      state.interests = addStylesToTypes(fakeInterests);
+      // state.interests = addStylesToTypes(action.payload);
+      state.error = action.error.message;
+    },
+    [addInterest.pending]: (state, action) => {
+      state.status = 'loading';
+    },
+    [addInterest.fulfilled]: (state, action) => {
+      state.status = 'succeeded';
+      state.interests = addStylesToTypes([...state.interests, action.payload]);
+    },
+    [addInterest.rejected]: (state, action) => {
+      state.status = 'failed';
       state.error = action.error.message;
     },
   },

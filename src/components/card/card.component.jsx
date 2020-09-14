@@ -4,10 +4,16 @@ import './card.styles.scss';
 import { Link } from 'react-router-dom';
 
 const Card = ({ data, urlStub }) => {
-  const linkUrl = `/${urlStub.toLowerCase()}/${data.id}`;
+  const linkUrl = `/${urlStub.toLowerCase()}/${data.name}`;
 
   return (
-    <Link to={linkUrl} className="card">
+    <Link
+      to={{
+        pathname: linkUrl,
+        state: { id: data._id },
+      }}
+      className="card"
+    >
 
       <h3 className="card-title">
         {data.name}

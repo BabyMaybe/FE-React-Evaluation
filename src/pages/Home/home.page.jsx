@@ -14,7 +14,7 @@ import './home.styles.scss';
 // building an arbitrarily configurable Home Page seemed like a rabbit hole when I was implementing.
 // This also seemed more lightweight than building a separate page for each route so it seemed a good compromise
 const HomePage = ({ showSkills, showInterests }) => {
-  const currentUser = useSelector(state => state.authentication.currentUser);
+  const currentUser = useSelector(state => state.authentication.currentUser.username);
 
   const allInterests = useSelector(state => state.interests.interests);
   const allSkills = useSelector(state => state.skills.skills);
