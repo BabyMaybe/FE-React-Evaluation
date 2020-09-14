@@ -39,6 +39,15 @@
     padding: 0.5em;
     color: $tag-text-color;
   }
+
+  .plus-sign {
+    display: block;
+    text-align: center;
+    font-size: 6em;
+    padding: 0;
+    padding-top: 0.25em;
+    color: $accent-color;
+  }
 }
 
 @media (max-width: 425px) {
