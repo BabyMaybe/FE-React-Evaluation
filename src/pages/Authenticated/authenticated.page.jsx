@@ -24,6 +24,7 @@ const Authenticated = () => {
   const dispatch = useDispatch();
 
   // Statuses for asynchronous requests
+  const authStatus = useSelector(state => state.authentication.status);
   const skillsStatus = useSelector(state => state.skills.status);
   const interestsStatus = useSelector(state => state.interests.status);
 
@@ -32,14 +33,14 @@ const Authenticated = () => {
     if (skillsStatus === 'idle') {
       dispatch(fetchSkills());
     }
-  }, [skillsStatus, dispatch]);
+  }, [skillsStatus, authStatus, dispatch]);
 
   //  Only fetch interests on inital load
   useEffect(() => {
     if (interestsStatus === 'idle') {
       dispatch(fetchInterests());
     }
-  }, [interestsStatus, dispatch]);
+  }, [interestsStatus, authStatus, dispatch]);
 
   // Placeholder to build content for and allow for hot swapping a Loading component
   let content;
