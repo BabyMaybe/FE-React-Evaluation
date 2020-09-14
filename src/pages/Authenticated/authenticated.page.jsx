@@ -9,6 +9,8 @@ import HeaderBar from '../../components/header-bar/header-bar.component';
 
 import { fetchSkills } from '../../redux/skills.slice';
 import { fetchInterests } from '../../redux/interests.slice';
+import AddSkillForm from '../../components/add-skill-form/add-skill-form.component';
+import AddInterestForm from '../../components/add-interest-form/add-interest-form.component';
 
 // This is an Authenticated Route page. It really only functions as a wrapper for authentication
 // All child routes will require a logged in user to view.
@@ -58,6 +60,7 @@ const Authenticated = () => {
         <Route exact path="/interests" render={() => <HomePage showInterests />} />
         <Route exact path="/skills" render={() => <HomePage showSkills />} />
         <Route path="/skills/add" component={AddSkillForm} />
+        <Route path="/interests/add" component={AddInterestForm} />
         <Route path="/skills/:id" component={DetailPage} />
         <Route path="/interests/:id" component={DetailPage} />
         <Route path="/" render={() => <HomePage showSkills showInterests />} />
