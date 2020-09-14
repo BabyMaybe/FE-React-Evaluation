@@ -2,7 +2,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { addStylesToTypes } from '../utilities/utilities';
-import { fakeInterests } from '../dummy-data';
 
 let interestsEndpoint;
 if (process.env.NODE_ENV === 'development') {
@@ -21,7 +20,7 @@ export const fetchInterests = createAsyncThunk('interests/fetchInterests',
       headers: { Authorization: auth.currentUser.token },
     });
     // Interests are also annotated with their types to make styling easier on presentation
-  return addStylesToTypes(fakeInterests);
+
     const interests = await response.json();
     return addStylesToTypes(interests);
   });

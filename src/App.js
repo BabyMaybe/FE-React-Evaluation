@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -25,7 +25,6 @@ function App() {
   // There is probably a better way to handle this but this is to accomodate
   // page reloading and reads from session where the state gets cleared
   // to allow for users to maintain authentication within a session
-  if (userPreviouslyAuthenticated && !userAuthenticated) {
   if (userToken && !userAuthenticated) {
     // If a user exists in session storage but not in the data store
     // it will dispatch a new Login Action and load the user into the data store

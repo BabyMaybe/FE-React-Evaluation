@@ -68,7 +68,6 @@ const skillsSlice = createSlice({
     },
     [addSkill.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      console.log(action.payload);
       state.skills = addStylesToTypes([...state.skills, action.payload]);
     },
     [addSkill.rejected]: (state, action) => {

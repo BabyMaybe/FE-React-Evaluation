@@ -1,10 +1,11 @@
 import React from 'react';
 
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import { logoutUser } from '../../redux/authentication.slice';
 
 import './logout.styles.scss';
-import { useHistory } from 'react-router-dom';
 
 const Logout = ({ open }) => {
   const dispatch = useDispatch();
@@ -12,11 +13,8 @@ const Logout = ({ open }) => {
 
   const logout = async e => {
     e.stopPropagation();
-    dispatch(userLoggedOut());
     const response = await dispatch(logoutUser());
-    console.log(response);
-    if (response.error) {
-    } else {
+    if (!response.error) {
       history.push('/login');
     }
   };

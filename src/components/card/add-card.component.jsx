@@ -3,7 +3,7 @@ import React from 'react';
 import './card.styles.scss';
 import { Link } from 'react-router-dom';
 
-const AddCard = ({ data, urlStub }) => {
+const AddCard = ({ urlStub }) => {
   const linkUrl = `/${urlStub.toLowerCase()}/add`;
 
   return (

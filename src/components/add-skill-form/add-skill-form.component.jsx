@@ -3,7 +3,6 @@ import './add-skill-form.styles.scss';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import NiInput from '../ni-input/ni-input.component';
-import NiButton from '../ni-button/ni-button.component';
 import { addSkill, fetchSkills } from '../../redux/skills.slice';
 
 const AddSkillForm = () => {
@@ -22,7 +21,6 @@ const AddSkillForm = () => {
 
   const attemptAddSkill = async e => {
     e.preventDefault();
-    console.log('adding skill');
     const newSkill = {
       name: skillName,
       type: skillType,
@@ -30,15 +28,12 @@ const AddSkillForm = () => {
       detail: skillDescription,
     };
     const response = await dispatch(addSkill(newSkill));
-    if (response.error) {
-      console.log('broken broken broken ');
-      console.log(response.error);
-    } else {
-      console.log('yaaaaaaaay');
+    if (!response.error) {
       await dispatch(fetchSkills);
       history.push('/skills');
     }
   };
+
   return (
 
     <div className="add-skill-form">

@@ -21,7 +21,6 @@ const AddinterestForm = () => {
 
   const attemptAddinterest = async e => {
     e.preventDefault();
-    console.log('adding interest');
     const newinterest = {
       name: interestName,
       type: interestType,
@@ -29,11 +28,7 @@ const AddinterestForm = () => {
       detail: interestDescription,
     };
     const response = await dispatch(addInterest(newinterest));
-    if (response.error) {
-      console.log('broken broken broken ');
-      console.log(response.error);
-    } else {
-      console.log('yaaaaaaaay');
+    if (!response.error) {
       await dispatch(fetchInterests);
       history.push('/interests');
     }
