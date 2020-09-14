@@ -20,7 +20,7 @@ export const fetchInterests = createAsyncThunk('interests/fetchInterests',
     return addStylesToTypes(interests);
   });
 
-export const addInterest = createAsyncThunk('skills/add',
+export const addInterest = createAsyncThunk('interests/add',
   async (data, { getState }) => {
     const auth = getState().authentication;
 
